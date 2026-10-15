@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ransomware Attack Chain Simulator</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at top, #102238 0%, #05070d 45%);
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(5, 7, 13, 0.9);
+            border-bottom: 1px solid #26334a;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .status {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .hero {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 9px 18px;
+            border-radius: 25px;
+            background: #10253a;
+            color: #54d6ff;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            margin-bottom: 25px;
+            border: 1px solid #214761;
+        }
+
+        h1 {
+            font-size: 58px;
+            line-height: 1.08;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .highlight {
+            color: #54d6ff;
+        }
+
+        .subtitle {
+            color: #aab4c5;
+            font-size: 19px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .scenario {
+            max-width: 850px;
+            margin: 35px auto;
+            padding: 25px;
+            background: rgba(11, 16, 26, 0.9);
+            border: 1px solid #26334a;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .scenario-title {
+            color: #54d6ff;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .scenario p {
+            color: #aab4c5;
+            line-height: 1.7;
+        }
+
+        .start-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 17px 38px;
+            border-radius: 10px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 25px rgba(22, 166, 217, 0.15);
+        }
+
+        .start-btn:hover {
+            background: #0d8dbb;
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(22, 166, 217, 0.3);
+        }
+
+        .features {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            padding: 28px;
+            background: rgba(11, 16, 26, 0.9);
+            border: 1px solid #26334a;
+            border-radius: 15px;
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #54d6ff;
+        }
+
+        .icon {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #9ba7ba;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .safety {
+            margin-top: 35px;
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .footer {
+            margin-top: 15px;
+            color: #647188;
+            font-size: 12px;
+        }
+
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 38px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // CYBER INCIDENT LAB
+        </div>
+
+        <div class="status">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <main class="hero">
+
+        <div class="container">
+
+            <div class="badge">
+                ⚠ CYBERSECURITY TRAINING ENVIRONMENT
+            </div>
+
+
+            <h1>
+                RANSOMWARE ATTACK<br>
+                <span class="highlight">CHAIN SIMULATOR</span>
+            </h1>
+
+
+            <p class="subtitle">
+                Experience a simulated ransomware incident from the
+                first suspicious message to detection, response and recovery.
+            </p>
+
+
+            <div class="scenario">
+
+                <div class="scenario-title">
+                    🏥 MEDCORE HEALTHCARE — SIMULATED ENVIRONMENT
+                </div>
+
+                <p>
+                    It is a normal working day at MedCore Healthcare.
+                    Six employees are working normally when an unexpected
+                    event begins a chain of simulated cyber incidents.
+                </p>
+
+            </div>
+
+
+            <!-- GO TO TEAM PAGE -->
+            <a href="/team" class="start-btn">
+                START INCIDENT SIMULATION →
+            </a>
+
+
+            <div class="features">
+
+                <div class="card">
+
+                    <div class="icon">🎬</div>
+
+                    <h3>
+                        Follow the Story
+                    </h3>
+
+                    <p>
+                        Follow Sandeep, Sarvan, Chakra, Mani, Sahithi
+                        and Siri through a fictional healthcare
+                        ransomware incident.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🧠</div>
+
+                    <h3>
+                        Understand the Attack
+                    </h3>
+
+                    <p>
+                        Learn what phishing, initial access, execution,
+                        discovery and ransomware impact mean in simple
+                        language.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="icon">🛡️</div>
+
+                    <h3>
+                        Detect & Respond
+                    </h3>
+
+                    <p>
+                        See how a security team detects suspicious
+                        activity, contains the incident and begins recovery.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="safety">
+                ✓ No real malware &nbsp; • &nbsp;
+                ✓ No real file encryption &nbsp; • &nbsp;
+                ✓ No real payment
+            </div>
+
+
+            <div class="footer">
+                Educational cybersecurity simulation — fictional scenario
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

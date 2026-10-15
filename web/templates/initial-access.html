@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Initial Access | MedCore Incident Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #05070d;
+            color: white;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090e17;
+            border-bottom: 1px solid #26334a;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .safe {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 0;
+        }
+
+        .stage {
+            color: #54d6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #aab4c5;
+            max-width: 850px;
+            font-size: 17px;
+        }
+
+        /* BIG DEFINITION */
+
+        .definition {
+            margin-top: 35px;
+            padding: 30px;
+            background: #0b101a;
+            border: 1px solid #54d6ff;
+            border-radius: 15px;
+        }
+
+        .definition h2 {
+            color: #54d6ff;
+            margin-bottom: 12px;
+        }
+
+        .definition p {
+            color: #c4cedb;
+            font-size: 17px;
+        }
+
+        .simple {
+            margin-top: 15px;
+            padding: 15px;
+            background: #101a27;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+
+        /* STORY */
+
+        .section-title {
+            margin-top: 45px;
+            margin-bottom: 20px;
+            font-size: 25px;
+        }
+
+        .story {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .step {
+            padding: 25px;
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 13px;
+        }
+
+        .number {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #102b40;
+            color: #54d6ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #aab4c5;
+            font-size: 14px;
+        }
+
+        /* FLOW */
+
+        .flow {
+            margin-top: 25px;
+            padding: 30px;
+            background: #080d15;
+            border: 1px solid #26334a;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .flow-item {
+            display: inline-block;
+            padding: 14px 18px;
+            margin: 7px;
+            background: #101823;
+            border: 1px solid #33445c;
+            border-radius: 8px;
+            color: #dce5ef;
+        }
+
+        .arrow {
+            color: #54d6ff;
+            font-size: 20px;
+        }
+
+        /* REAL WORLD EXAMPLE */
+
+        .example {
+            margin-top: 35px;
+            padding: 30px;
+            background: #11100c;
+            border: 1px solid #5a4724;
+            border-radius: 15px;
+        }
+
+        .example h2 {
+            color: #ffbf5b;
+            margin-bottom: 15px;
+        }
+
+        .example p {
+            color: #c9c0ae;
+        }
+
+        /* DEFENSE */
+
+        .defense {
+            margin-top: 35px;
+            padding: 30px;
+            background: #0b1511;
+            border: 1px solid #315b46;
+            border-radius: 15px;
+        }
+
+        .defense h2 {
+            color: #75d6a0;
+            margin-bottom: 18px;
+        }
+
+        .defense-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .defense-item {
+            padding: 14px;
+            background: #101d17;
+            border-radius: 8px;
+            color: #c4d8cc;
+        }
+
+        /* IMPORTANT */
+
+        .important {
+            margin-top: 35px;
+            padding: 25px;
+            background: #16101a;
+            border-left: 4px solid #c66cff;
+            border-radius: 8px;
+        }
+
+        .important h2 {
+            margin-bottom: 10px;
+            color: #d78cff;
+        }
+
+        .important p {
+            color: #c3b5ca;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 32px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .continue:hover {
+            background: #0d8dbb;
+        }
+
+        .safe-note {
+            margin-top: 18px;
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+
+            h1 {
+                font-size: 35px;
+            }
+
+            .story {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- TOP BAR -->
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="safe">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <!-- TITLE -->
+
+        <div class="stage">
+            STAGE 02 — INITIAL ACCESS
+        </div>
+
+        <h1>
+            The Attacker Finds a Way In
+        </h1>
+
+        <p class="subtitle">
+
+            The phishing message was the first warning sign.
+            In this simulated story, Sahithi interacts with it.
+            Now we explain what happens when an attacker gets a
+            first foothold inside an organization's environment.
+
+        </p>
+
+
+        <!-- SIMPLE DEFINITION -->
+
+        <div class="definition">
+
+            <h2>
+                🔓 What is Initial Access?
+            </h2>
+
+            <p>
+
+                <strong>Initial Access means the attacker gets their
+                first entry point into a computer system or organization.</strong>
+
+            </p>
+
+            <div class="simple">
+
+                💡 <strong>Simple example:</strong>
+
+                Someone is standing outside a building.
+                The building has a locked door.
+
+                <br><br>
+
+                If that person somehow gets through the door,
+                they now have <strong>initial access</strong>.
+
+                <br><br>
+
+                In cybersecurity, the "door" could be a compromised
+                account, vulnerable service, malicious attachment,
+                stolen credentials, or another entry point.
+
+            </div>
+
+        </div>
+
+
+        <!-- MEDCORE STORY -->
+
+        <h2 class="section-title">
+            🎬 What Happened at MedCore?
+        </h2>
+
+
+        <div class="story">
+
+
+            <div class="step">
+
+                <div class="number">
+                    01
+                </div>
+
+                <h3>
+                    📩 Suspicious Message
+                </h3>
+
+                <p>
+
+                    Sahithi receives an unexpected message asking her
+                    to urgently verify her account.
+
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">
+                    02
+                </div>
+
+                <h3>
+                    🖱️ User Interaction
+                </h3>
+
+                <p>
+
+                    In our fictional simulation, Sahithi follows the
+                    suspicious request.
+
+                    <br><br>
+
+                    No real credentials are collected.
+
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="number">
+                    03
+                </div>
+
+                <h3>
+                    🔓 First Foothold
+                </h3>
+
+                <p>
+
+                    The simulation represents the attacker as having
+                    gained a foothold.
+
+                    This is called <strong>Initial Access</strong>.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ATTACK FLOW -->
+
+        <h2 class="section-title">
+            🔗 Understand the Attack Chain
+        </h2>
+
+
+        <div class="flow">
+
+            <div class="flow-item">
+                📩 Phishing Message
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-item">
+                🖱️ User Interaction
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-item">
+                🔓 Initial Access
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-item">
+                ⚙️ Further Activity
+            </div>
+
+        </div>
+
+
+        <!-- REAL WORLD EXAMPLE -->
+
+        <div class="example">
+
+            <h2>
+                🏥 Healthcare Example
+            </h2>
+
+            <p>
+
+                Imagine a hospital employee receives a fake message
+                pretending to be from the hospital's IT department.
+
+                <br><br>
+
+                The employee interacts with the message and the attacker
+                manages to obtain an entry point.
+
+                <br><br>
+
+                The attacker may then attempt to move further through
+                the environment and reach additional systems.
+
+                <br><br>
+
+                <strong>
+                    This is why the first entry point is extremely
+                    important to detect quickly.
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <!-- DEFENDER -->
+
+        <div class="defense">
+
+            <h2>
+                🛡️ How Can Defenders Stop Initial Access?
+            </h2>
+
+
+            <div class="defense-list">
+
+                <div class="defense-item">
+                    ✓ Train employees to identify phishing messages
+                </div>
+
+                <div class="defense-item">
+                    ✓ Use multi-factor authentication (MFA)
+                </div>
+
+                <div class="defense-item">
+                    ✓ Use email security and spam filtering
+                </div>
+
+                <div class="defense-item">
+                    ✓ Monitor unusual account activity
+                </div>
+
+                <div class="defense-item">
+                    ✓ Keep operating systems and software updated
+                </div>
+
+                <div class="defense-item">
+                    ✓ Quickly report suspicious messages
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMPORTANT LESSON -->
+
+        <div class="important">
+
+            <h2>
+                🧠 Key Lesson
+            </h2>
+
+            <p>
+
+                <strong>
+                    Initial Access does NOT mean the attacker has already
+                    encrypted everything.
+                </strong>
+
+                <br><br>
+
+                It means the attacker has obtained a starting point.
+
+                <br><br>
+
+                The next stages explain what an attacker might attempt
+                after gaining that foothold — and how defenders can
+                detect and stop the attack before serious impact.
+
+            </p>
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <a href="/execution" class="continue">
+            CONTINUE TO EXECUTION →
+        </a>
+
+
+        <div class="safe-note">
+
+            ✓ Educational simulation only —
+            no real systems, accounts or files are accessed.
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

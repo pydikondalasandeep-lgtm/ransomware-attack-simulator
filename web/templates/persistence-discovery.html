@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Persistence & Discovery | MedCore Incident Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #05070d;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090e17;
+            border-bottom: 1px solid #26334a;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .safe {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 0;
+        }
+
+        .stage-label {
+            color: #54d6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #aab4c5;
+            font-size: 17px;
+            max-width: 900px;
+        }
+
+        /* CHARACTER BAR */
+
+        .characters {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .character {
+            padding: 16px;
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 10px;
+        }
+
+        .character strong {
+            color: #54d6ff;
+        }
+
+        .character span {
+            display: block;
+            color: #aab4c5;
+            font-size: 13px;
+        }
+
+        /* STAGE */
+
+        .stage {
+            margin-top: 40px;
+            padding: 30px;
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 15px;
+        }
+
+        .stage-number {
+            color: #54d6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .stage h2 {
+            font-size: 30px;
+            margin: 8px 0 12px;
+        }
+
+        .definition {
+            margin-top: 20px;
+            padding: 18px;
+            background: #101a27;
+            border-radius: 9px;
+            color: #c7d0dc;
+        }
+
+        /* STORY */
+
+        .story-title {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .scene {
+            display: grid;
+            grid-template-columns: 130px 1fr;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 12px;
+            background: #080d15;
+            border: 1px solid #26334a;
+            border-radius: 10px;
+        }
+
+        .time {
+            color: #54d6ff;
+            font-weight: bold;
+        }
+
+        .scene h3 {
+            margin-bottom: 7px;
+        }
+
+        .scene p {
+            color: #aab4c5;
+        }
+
+        .dialogue {
+            margin-top: 10px;
+            padding: 12px;
+            background: #101823;
+            border-left: 3px solid #54d6ff;
+            color: #dce5ef;
+            font-style: italic;
+        }
+
+        /* EXPLANATION */
+
+        .explain {
+            margin-top: 25px;
+            padding: 23px;
+            background: #11100c;
+            border: 1px solid #5a4724;
+            border-radius: 10px;
+        }
+
+        .explain h3 {
+            color: #ffbf5b;
+            margin-bottom: 10px;
+        }
+
+        .explain p {
+            color: #c9c0ae;
+        }
+
+        /* DEFENSE */
+
+        .defense {
+            margin-top: 25px;
+            padding: 23px;
+            background: #0b1511;
+            border: 1px solid #315b46;
+            border-radius: 10px;
+        }
+
+        .defense h3 {
+            color: #75d6a0;
+            margin-bottom: 12px;
+        }
+
+        .defense-item {
+            padding: 11px;
+            margin-top: 8px;
+            background: #101d17;
+            border-radius: 7px;
+            color: #c4d8cc;
+        }
+
+        /* FLOW */
+
+        .flow {
+            margin-top: 35px;
+            padding: 25px;
+            background: #080d15;
+            border: 1px solid #26334a;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .flow-box {
+            display: inline-block;
+            padding: 12px 16px;
+            margin: 5px;
+            background: #101823;
+            border: 1px solid #33445c;
+            border-radius: 8px;
+        }
+
+        .arrow {
+            color: #54d6ff;
+            font-size: 20px;
+        }
+
+        /* LESSON */
+
+        .lesson {
+            margin-top: 30px;
+            padding: 25px;
+            background: #16101a;
+            border-left: 4px solid #c66cff;
+            border-radius: 8px;
+        }
+
+        .lesson h2 {
+            color: #d78cff;
+            margin-bottom: 10px;
+        }
+
+        .lesson p {
+            color: #c3b5ca;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 32px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .safe-note {
+            margin-top: 18px;
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 750px) {
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .characters {
+                grid-template-columns: 1fr;
+            }
+
+            .scene {
+                grid-template-columns: 1fr;
+                gap: 5px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="safe">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="stage-label">
+            STAGES 04 — 05
+        </div>
+
+
+        <h1>
+            The Attacker Stays & Learns
+        </h1>
+
+
+        <p class="intro">
+
+            The attacker has already gained a simulated foothold.
+            Now the incident moves deeper: maintaining access and
+            learning what exists inside the MedCore environment.
+
+        </p>
+
+
+        <!-- CHARACTERS -->
+
+        <div class="characters">
+
+            <div class="character">
+                <strong>Sahithi</strong>
+                <span>Employee / First Victim</span>
+            </div>
+
+            <div class="character">
+                <strong>Chakra</strong>
+                <span>Workstation Owner</span>
+            </div>
+
+            <div class="character">
+                <strong>Sandeep</strong>
+                <span>SOC Security Analyst</span>
+            </div>
+
+            <div class="character">
+                <strong>Sarvan</strong>
+                <span>System Administrator</span>
+            </div>
+
+            <div class="character">
+                <strong>Mani</strong>
+                <span>Network Analyst</span>
+            </div>
+
+            <div class="character">
+                <strong>Siri</strong>
+                <span>Incident Response Lead</span>
+            </div>
+
+        </div>
+
+
+        <!-- STAGE 04 -->
+
+        <section class="stage">
+
+            <div class="stage-number">
+                STAGE 04
+            </div>
+
+            <h2>
+                🔄 Persistence — Staying Inside
+            </h2>
+
+            <div class="definition">
+
+                <strong>Simple meaning:</strong>
+
+                Persistence means an attacker attempts to maintain
+                access to an environment after the original entry point
+                has been discovered or removed.
+
+                <br><br>
+
+                In this project, persistence is represented safely.
+                No real persistence mechanism is created.
+
+            </div>
+
+
+            <h3 class="story-title">
+                🎬 MedCore — Scene 1
+            </h3>
+
+
+            <div class="scene">
+
+                <div class="time">
+                    10:22 AM
+                </div>
+
+                <div>
+
+                    <h3>
+                        🖥️ Chakra notices something unusual
+                    </h3>
+
+                    <p>
+
+                        Chakra, the workstation owner, notices that
+                        the computer is behaving differently from normal.
+
+                    </p>
+
+                    <div class="dialogue">
+                        "Sandeep, something feels wrong with this system."
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="scene">
+
+                <div class="time">
+                    10:24 AM
+                </div>
+
+                <div>
+
+                    <h3>
+                        🚨 Sandeep receives an alert
+                    </h3>
+
+                    <p>
+
+                        Sandeep, the SOC analyst, sees suspicious
+                        activity associated with Chakra's workstation.
+
+                    </p>
+
+                    <div class="dialogue">
+                        "Don't disconnect anything yet. I'm checking the alert."
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="scene">
+
+                <div class="time">
+                    10:26 AM
+                </div>
+
+                <div>
+
+                    <h3>
+                        🛠️ Sarvan joins the investigation
+                    </h3>
+
+                    <p>
+
+                        Sarvan, the system administrator, begins checking
+                        the affected workstation and account activity.
+
+                    </p>
+
+                    <div class="dialogue">
+                        "I'll verify the workstation and account status."
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="explain">
+
+                <h3>
+                    🧠 What is happening here?
+                </h3>
+
+                <p>
+
+                    The attacker is represented as attempting to
+                    maintain a foothold.
+
+                    <br><br>
+
+                    The defenders are looking for signs that access
+                    may still exist.
+
+                    <br><br>
+
+                    <strong>
+                        This is the concept of Persistence.
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <div class="defense">
+
+                <h3>
+                    🛡️ Defender Response
+                </h3>
+
+                <div class="defense-item">
+                    ✓ Review suspicious account activity
+                </div>
+
+                <div class="defense-item">
+                    ✓ Check affected systems
+                </div>
+
+                <div class="defense-item">
+                    ✓ Investigate unusual authentication events
+                </div>
+
+                <div class="defense-item">
+                    ✓ Remove or disable confirmed compromised access
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- STAGE 05 -->
+
+        <section class="stage">
+
+            <div class="stage-number">
+                STAGE 05
+            </div>
+
+            <h2>
+                🔎 Discovery — Understanding the Environment
+            </h2>
+
+
+            <div class="definition">
+
+                <strong>Simple meaning:</strong>
+
+                Discovery means learning about the environment.
+
+                <br><br>
+
+                An attacker may try to understand what systems,
+                users, servers and important resources exist.
+
+                <br><br>
+
+                Think of it as:
+
+                <strong>
+                    "What is inside this organization?"
+                </strong>
+
+            </div>
+
+
+            <h3 class="story-title">
+                🎬 MedCore — Scene 2
+            </h3>
+
+
+            <div class="scene">
+
+                <div class="time">
+                    10:31 AM
+                </div>
+
+                <div>
+
+                    <h3>
+                        🌐 Mani checks the network
+                    </h3>
+
+                    <p>
+
+                        Mani, the network analyst, reviews the network
+                        activity surrounding the affected workstation.
+
+                    </p>
+
+                    <div class="dialogue">
+                        "There is unusual communication coming from Chakra's system."
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="scene">
+
+                <div class="time">
+                    10:34 AM
+                </div>
+
+                <div>
+
+                    <h3>
+                        🔍 Sandeep connects the alerts
+                    </h3>
+
+                    <p>
+
+                        Sandeep compares the endpoint alert with
+                        authentication and network information.
+
+                    </p>
+
+                    <div class="dialogue">
+                        "The events are connected. We may be looking at one incident."
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="scene">
+
+                <div class="time">
+                    10:37 AM
+                </div>
+
+                <div>
+
+                    <h3>
+                        🚨 Siri takes command
+                    </h3>
+
+                    <p>
+
+                        Siri, the incident-response lead, coordinates
+                        the investigation and prepares the team for
+                        possible containment.
+
+                    </p>
+
+                    <div class="dialogue">
+                        "Keep monitoring. Prepare containment procedures."
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="explain">
+
+                <h3>
+                    🧠 What is Discovery?
+                </h3>
+
+                <p>
+
+                    The attacker is represented as trying to understand
+                    the environment before moving further.
+
+                    <br><br>
+
+                    For defenders, unusual discovery activity can be
+                    an important warning sign.
+
+                    <br><br>
+
+                    <strong>
+                        The earlier the team understands what is happening,
+                        the better the chance of stopping the attack.
+                    </strong>
+
+                </p>
+
+            </div>
+
+
+            <div class="defense">
+
+                <h3>
+                    🛡️ Defender Response
+                </h3>
+
+                <div class="defense-item">
+                    ✓ Monitor unusual network behaviour
+                </div>
+
+                <div class="defense-item">
+                    ✓ Maintain an accurate asset inventory
+                </div>
+
+                <div class="defense-item">
+                    ✓ Investigate unexpected account activity
+                </div>
+
+                <div class="defense-item">
+                    ✓ Correlate endpoint, identity and network alerts
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ATTACK CHAIN -->
+
+        <div class="flow">
+
+            <div class="flow-box">
+                📩 Phishing
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-box">
+                🔓 Initial Access
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-box">
+                ⚙️ Execution
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-box">
+                🔄 Persistence
+            </div>
+
+            <span class="arrow">→</span>
+
+            <div class="flow-box">
+                🔎 Discovery
+            </div>
+
+        </div>
+
+
+        <!-- KEY LESSON -->
+
+        <div class="lesson">
+
+            <h2>
+                🧠 The Important Lesson
+            </h2>
+
+            <p>
+
+                <strong>
+                    Persistence = trying to stay inside.
+                </strong>
+
+                <br><br>
+
+                <strong>
+                    Discovery = trying to understand what is inside.
+                </strong>
+
+                <br><br>
+
+                In our story, Sandeep, Sarvan, Mani and Siri are now
+                working together to identify the incident before it
+                reaches the destructive stage.
+
+                <br><br>
+
+                <strong>
+                    The next stage is where the incident becomes critical:
+                    IMPACT.
+                </strong>
+
+            </p>
+
+        </div>
+
+
+        <a href="/impact" class="continue">
+            CONTINUE TO IMPACT + RANSOMWARE →
+        </a>
+
+
+        <div class="safe-note">
+
+            ✓ Educational simulation only —
+            no real systems, credentials, files or malicious
+            persistence mechanisms are used.
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

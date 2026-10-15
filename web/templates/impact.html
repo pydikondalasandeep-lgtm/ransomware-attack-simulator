@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ransomware Impact | MedCore Incident Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #050609;
+            color: #f2f5f7;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .topbar {
+            height: 68px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090c12;
+            border-bottom: 1px solid #292d35;
+        }
+
+        .logo {
+            color: #53d8ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .safe {
+            color: #72d69b;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 0;
+        }
+
+        .stage {
+            color: #ff6262;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #aeb6c2;
+            font-size: 17px;
+            max-width: 900px;
+        }
+
+        .alert {
+            margin-top: 30px;
+            padding: 25px;
+            border: 1px solid #7c3030;
+            background: #190b0b;
+            border-radius: 14px;
+        }
+
+        .alert h2 {
+            color: #ff6666;
+            margin-bottom: 8px;
+        }
+
+        .alert p {
+            color: #d6baba;
+        }
+
+        .section {
+            margin-top: 35px;
+            padding: 30px;
+            background: #0b0f16;
+            border: 1px solid #272e3a;
+            border-radius: 15px;
+        }
+
+        .label {
+            color: #53d8ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .section h2 {
+            margin: 8px 0 20px;
+        }
+
+        .story {
+            color: #b9c1cc;
+        }
+
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .file {
+            padding: 18px;
+            background: #11161f;
+            border: 1px solid #343b47;
+            border-radius: 10px;
+        }
+
+        .file-name {
+            font-weight: bold;
+        }
+
+        .locked {
+            color: #ff6666;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .ransom-box {
+            margin-top: 35px;
+            padding: 35px;
+            background: #160909;
+            border: 2px solid #9c3636;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .ransom-box .warning {
+            color: #ff6666;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .ransom-box h2 {
+            font-size: 32px;
+            color: #ff7777;
+            margin-bottom: 15px;
+        }
+
+        .demand {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background: #090606;
+            border: 1px solid #5f2929;
+            border-radius: 10px;
+            color: #dcbebe;
+        }
+
+        .fake-amount {
+            font-size: 30px;
+            font-weight: bold;
+            color: #ff7777;
+            margin: 15px 0;
+        }
+
+        .note {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .meaning {
+            margin-top: 35px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .card {
+            padding: 22px;
+            background: #0d121a;
+            border: 1px solid #293340;
+            border-radius: 12px;
+        }
+
+        .card h3 {
+            color: #53d8ff;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #aeb7c3;
+        }
+
+        .defender {
+            margin-top: 35px;
+            padding: 28px;
+            background: #09150f;
+            border: 1px solid #315e47;
+            border-radius: 14px;
+        }
+
+        .defender h2 {
+            color: #72d69b;
+            margin-bottom: 15px;
+        }
+
+        .defender li {
+            margin: 10px 0;
+            color: #c4d6cb;
+        }
+
+        .chain {
+            margin-top: 35px;
+            padding: 28px;
+            background: #0c1017;
+            border-radius: 14px;
+            border: 1px solid #29313d;
+        }
+
+        .chain h2 {
+            margin-bottom: 18px;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .step {
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: #151b24;
+            border: 1px solid #343c48;
+            color: #bfc8d4;
+        }
+
+        .current {
+            background: #351111;
+            border-color: #8d3737;
+            color: #ff7777;
+        }
+
+        .next {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 30px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .simulation-note {
+            margin-top: 18px;
+            color: #72d69b;
+            font-size: 13px;
+        }
+
+        @media (max-width: 750px) {
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .file-grid,
+            .meaning {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="safe">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="stage">
+            STAGE 06 — RANSOMWARE IMPACT
+        </div>
+
+
+        <h1>
+            The Files Are Locked
+        </h1>
+
+
+        <p class="intro">
+
+            The simulated ransomware has reached the impact stage.
+            Critical files are no longer available to the employees,
+            and a ransom demand appears.
+
+        </p>
+
+
+        <div class="alert">
+
+            <h2>
+                ⚠ SIMULATED SECURITY INCIDENT
+            </h2>
+
+            <p>
+
+                This page demonstrates what ransomware impact can
+                look like inside a fictional healthcare organization.
+                No real files are encrypted or damaged.
+
+            </p>
+
+        </div>
+
+
+        <!-- STORY -->
+
+        <div class="section">
+
+            <div class="label">
+                WHAT HAPPENED?
+            </div>
+
+            <h2>
+                The attack reaches its final impact
+            </h2>
+
+            <p class="story">
+
+                Earlier, Sahithi received a suspicious message.
+                The simulated attacker gained initial access,
+                executed malicious activity, maintained access
+                and learned about the environment.
+
+                <br><br>
+
+                Now the attacker reaches the ransomware stage.
+                Important files become inaccessible in the simulation.
+
+            </p>
+
+
+            <div class="file-grid">
+
+                <div class="file">
+                    <div class="file-name">
+                        🏥 Patient_Records.db
+                    </div>
+                    <div class="locked">
+                        🔒 ACCESS BLOCKED
+                    </div>
+                </div>
+
+
+                <div class="file">
+                    <div class="file-name">
+                        📄 Billing_Records.xlsx
+                    </div>
+                    <div class="locked">
+                        🔒 ACCESS BLOCKED
+                    </div>
+                </div>
+
+
+                <div class="file">
+                    <div class="file-name">
+                        📋 Staff_Schedule.docx
+                    </div>
+                    <div class="locked">
+                        🔒 ACCESS BLOCKED
+                    </div>
+                </div>
+
+
+                <div class="file">
+                    <div class="file-name">
+                        🗂 Hospital_Backup.zip
+                    </div>
+                    <div class="locked">
+                        🔒 ACCESS BLOCKED
+                    </div>
+                </div>
+
+
+                <div class="file">
+                    <div class="file-name">
+                        📊 Finance_Report.xlsx
+                    </div>
+                    <div class="locked">
+                        🔒 ACCESS BLOCKED
+                    </div>
+                </div>
+
+
+                <div class="file">
+                    <div class="file-name">
+                        📝 Operations.docx
+                    </div>
+                    <div class="locked">
+                        🔒 ACCESS BLOCKED
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RANSOM DEMAND -->
+
+        <div class="ransom-box">
+
+            <div class="warning">
+                ⚠ SIMULATED RANSOM DEMAND
+            </div>
+
+            <h2>
+                YOUR FILES ARE INACCESSIBLE
+            </h2>
+
+            <div class="demand">
+
+                <p>
+
+                    The simulated attacker claims that the
+                    organization's files have been locked.
+
+                </p>
+
+                <div class="fake-amount">
+                    2.5 BTC
+                </div>
+
+                <p>
+
+                    is demanded in this fictional scenario
+                    in exchange for a supposed recovery key.
+
+                </p>
+
+            </div>
+
+            <div class="note">
+
+                This is a fictional amount for demonstration only.
+                No cryptocurrency transaction occurs.
+
+            </div>
+
+        </div>
+
+
+        <!-- MEANING -->
+
+        <div class="meaning">
+
+            <div class="card">
+
+                <h3>
+                    What is ransomware?
+                </h3>
+
+                <p>
+
+                    Ransomware is malicious software designed to
+                    deny access to data or systems, commonly by
+                    encrypting files, and attackers may demand
+                    payment for recovery.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Why is this dangerous?
+                </h3>
+
+                <p>
+
+                    Organizations can lose access to important
+                    information and services. In healthcare,
+                    disruption can also affect normal operations.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Why does the attacker ask for money?
+                </h3>
+
+                <p>
+
+                    The attacker attempts to use the loss of
+                    availability as pressure on the organization
+                    to make a ransom payment.
+
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Is paying the ransom guaranteed to work?
+                </h3>
+
+                <p>
+
+                    No. Payment does not guarantee recovery and
+                    does not remove the underlying security risks.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- DEFENDER -->
+
+        <div class="defender">
+
+            <h2>
+                🛡 What Should Defenders Do?
+            </h2>
+
+            <ul>
+
+                <li>
+                    Isolate affected systems from the network.
+                </li>
+
+                <li>
+                    Preserve evidence and investigate the attack.
+                </li>
+
+                <li>
+                    Determine how the attacker entered the environment.
+                </li>
+
+                <li>
+                    Check whether other systems are affected.
+                </li>
+
+                <li>
+                    Use clean backups and recovery procedures where available.
+                </li>
+
+                <li>
+                    Document the incident and improve defenses.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <!-- ATTACK CHAIN -->
+
+        <div class="chain">
+
+            <h2>
+                🔗 Attack Chain
+            </h2>
+
+            <div class="steps">
+
+                <div class="step">
+                    01 Phishing
+                </div>
+
+                <div class="step">
+                    02 Initial Access
+                </div>
+
+                <div class="step">
+                    03 Execution
+                </div>
+
+                <div class="step">
+                    04 Persistence
+                </div>
+
+                <div class="step">
+                    05 Discovery
+                </div>
+
+                <div class="step current">
+                    06 Ransomware Impact
+                </div>
+
+                <div class="step">
+                    07 Response
+                </div>
+
+                <div class="step">
+                    08 Recovery
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a href="/response" class="next">
+            CONTINUE TO INCIDENT RESPONSE →
+        </a>
+
+
+        <div class="simulation-note">
+
+            ✓ Educational simulation only — no real ransomware,
+            encryption, file modification or payment process is used.
+
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

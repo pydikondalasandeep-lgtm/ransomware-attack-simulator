@@ -1,0 +1,70 @@
+============================================================
+        RANSOMWARE ATTACK SIMULATION REPORT
+============================================================
+
+Report Generated: 2026-10-04 11:54:20
+Scenario: Healthcare Environment
+Mode: Safe Simulation
+
+DETECTED EVENTS
+------------------------------------------------------------
+[2026-10-04 11:19:42] Phishing attempt detected
+[2026-10-04 11:19:42] Initial access detected
+[2026-10-04 11:19:42] Suspicious execution detected
+[2026-10-04 11:19:42] Persistence attempt detected
+[2026-10-04 11:19:42] System discovery detected
+[2026-10-04 11:19:42] Ransomware impact detected
+[2026-10-04 11:21:23] Phishing attempt detected
+[2026-10-04 11:21:23] Initial access detected
+[2026-10-04 11:21:23] Suspicious execution detected
+[2026-10-04 11:21:23] Persistence attempt detected
+[2026-10-04 11:21:23] System discovery detected
+[2026-10-04 11:21:23] Ransomware impact detected
+[2026-10-04 11:31:27] Phishing attempt detected
+[2026-10-04 11:31:27] Initial access detected
+[2026-10-04 11:31:27] Suspicious execution detected
+[2026-10-04 11:31:27] Persistence attempt detected
+[2026-10-04 11:31:27] System discovery detected
+[2026-10-04 11:31:27] Ransomware impact detected
+[2026-10-04 11:37:27] Phishing attempt detected
+[2026-10-04 11:37:27] Initial access detected
+[2026-10-04 11:37:27] Suspicious execution detected
+[2026-10-04 11:37:27] Persistence attempt detected
+[2026-10-04 11:37:27] System discovery detected
+[2026-10-04 11:37:27] Ransomware impact detected
+[2026-10-04 11:39:49] Phishing attempt detected
+[2026-10-04 11:39:49] Initial access detected
+[2026-10-04 11:39:49] Suspicious execution detected
+[2026-10-04 11:39:49] Persistence attempt detected
+[2026-10-04 11:39:49] System discovery detected
+[2026-10-04 11:39:49] Ransomware impact detected
+[2026-10-04 11:43:51] Phishing attempt detected
+[2026-10-04 11:43:51] Initial access detected
+[2026-10-04 11:43:51] Suspicious execution detected
+[2026-10-04 11:43:51] Persistence attempt detected
+[2026-10-04 11:43:51] System discovery detected
+[2026-10-04 11:43:51] Ransomware impact detected
+[2026-10-04 11:48:40] Phishing attempt detected
+[2026-10-04 11:48:40] Initial access detected
+[2026-10-04 11:48:40] Suspicious execution detected
+[2026-10-04 11:48:40] Persistence attempt detected
+[2026-10-04 11:48:40] System discovery detected
+[2026-10-04 11:48:40] Ransomware impact detected
+[2026-10-04 11:48:44] Phishing attempt detected
+[2026-10-04 11:48:44] Initial access detected
+[2026-10-04 11:48:44] Suspicious execution detected
+[2026-10-04 11:48:44] Persistence attempt detected
+[2026-10-04 11:48:44] System discovery detected
+[2026-10-04 11:48:44] Ransomware impact detected
+[2026-10-04 11:53:41] Phishing attempt detected
+[2026-10-04 11:53:41] Initial access detected
+[2026-10-04 11:53:41] Suspicious execution detected
+[2026-10-04 11:53:41] Persistence attempt detected
+[2026-10-04 11:53:41] System discovery detected
+[2026-10-04 11:53:41] Ransomware impact detected
+
+------------------------------------------------------------
+Total Events Detected: 54
+
+No real files were encrypted, deleted, or damaged.
+============================================================

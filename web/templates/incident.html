@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedCore Incident Begins</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #03050a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #1d293a;
+            background: #070b12;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .mode {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .scene {
+            min-height: calc(100vh - 70px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+        }
+
+        .content {
+            width: 90%;
+            max-width: 950px;
+            text-align: center;
+        }
+
+        .time {
+            color: #54d6ff;
+            font-size: 18px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+        }
+
+        .location {
+            color: #aab4c5;
+            font-size: 20px;
+            margin-bottom: 40px;
+        }
+
+        .status-box {
+            max-width: 650px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #26334a;
+            border-radius: 15px;
+            background: #0a0f18;
+        }
+
+        .status-title {
+            color: #75d6a0;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .status-list {
+            display: grid;
+            gap: 14px;
+            text-align: left;
+        }
+
+        .status-item {
+            padding: 14px;
+            background: #0e1520;
+            border-radius: 8px;
+            color: #c5cedc;
+        }
+
+        .green {
+            color: #75d6a0;
+        }
+
+        .story {
+            max-width: 750px;
+            margin: 35px auto 0;
+            color: #9ba7ba;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .begin-btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 35px;
+            border-radius: 10px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .begin-btn:hover {
+            background: #0d8dbb;
+            transform: translateY(-3px);
+        }
+
+        .safe-note {
+            margin-top: 30px;
+            color: #68758a;
+            font-size: 12px;
+        }
+
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 38px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="mode">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <main class="scene">
+
+        <div class="content">
+
+            <div class="time">
+                09:00 AM
+            </div>
+
+            <h1>
+                Everything Looks Normal.
+            </h1>
+
+            <div class="location">
+                🏥 MedCore Healthcare
+            </div>
+
+
+            <div class="status-box">
+
+                <div class="status-title">
+                    SYSTEM STATUS — NORMAL
+                </div>
+
+                <div class="status-list">
+
+                    <div class="status-item">
+                        <span class="green">●</span>
+                        Hospital systems operational
+                    </div>
+
+                    <div class="status-item">
+                        <span class="green">●</span>
+                        Network status normal
+                    </div>
+
+                    <div class="status-item">
+                        <span class="green">●</span>
+                        No critical security alerts
+                    </div>
+
+                    <div class="status-item">
+                        <span class="green">●</span>
+                        Employees working normally
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="story">
+
+                Six employees begin their normal working day.
+
+                <br><br>
+
+                <strong>
+                    Sandeep. Sarvan. Chakra. Mani. Sahithi. Siri.
+                </strong>
+
+                <br><br>
+
+                Nobody knows that within the next few minutes,
+                a suspicious message will begin a chain of events
+                that could become a serious ransomware incident.
+
+            </div>
+
+
+            <a href="/phishing" class="begin-btn">
+                BEGIN INCIDENT →
+            </a>
+
+
+            <div class="safe-note">
+                This is a fictional cybersecurity training scenario.
+                No real systems or files are affected.
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

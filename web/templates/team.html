@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MedCore Team | Incident Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #05070d;
+            color: white;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090e17;
+            border-bottom: 1px solid #26334a;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .safe {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+            padding: 55px 0;
+        }
+
+        .label {
+            text-align: center;
+            color: #54d6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            text-align: center;
+            color: #aab4c5;
+            max-width: 850px;
+            margin: auto;
+            font-size: 17px;
+        }
+
+        .team-grid {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 15px;
+            padding: 28px;
+            min-height: 250px;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            border-color: #54d6ff;
+            transform: translateY(-4px);
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #10283a;
+            color: #54d6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .name {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .role {
+            color: #54d6ff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .description {
+            color: #aab4c5;
+            font-size: 14px;
+        }
+
+        .scenario {
+            margin-top: 45px;
+            padding: 30px;
+            background: #080d15;
+            border: 1px solid #26334a;
+            border-radius: 15px;
+        }
+
+        .scenario h2 {
+            color: #54d6ff;
+            margin-bottom: 15px;
+        }
+
+        .scenario p {
+            color: #b7c2d0;
+        }
+
+        .flow {
+            margin-top: 25px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .flow-item {
+            padding: 15px;
+            background: #101823;
+            border-radius: 9px;
+            border-left: 3px solid #54d6ff;
+        }
+
+        .flow-item strong {
+            color: #ffffff;
+        }
+
+        .flow-item span {
+            color: #aab4c5;
+        }
+
+        .button {
+            display: block;
+            width: fit-content;
+            margin: 35px auto 0;
+            padding: 15px 30px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0d8dbb;
+        }
+
+        .safe-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 35px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="safe">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="label">
+            INCIDENT SCENARIO
+        </div>
+
+
+        <h1>
+            Meet the MedCore Team
+        </h1>
+
+
+        <p class="intro">
+
+            Before the incident begins, meet the six people involved
+            in our fictional healthcare environment.
+
+            Each person has a different responsibility during the
+            simulated ransomware incident.
+
+        </p>
+
+
+        <!-- TEAM -->
+
+        <div class="team-grid">
+
+
+            <!-- SAHITHI -->
+
+            <div class="card">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <div class="name">
+                    Sahithi
+                </div>
+
+                <div class="role">
+                    Hospital Employee / First Victim
+                </div>
+
+                <div class="description">
+
+                    Sahithi receives the suspicious message that begins
+                    the simulated attack scenario.
+
+                    Her actions help demonstrate how phishing can become
+                    the starting point of a ransomware incident.
+
+                </div>
+
+            </div>
+
+
+            <!-- CHAKRA -->
+
+            <div class="card">
+
+                <div class="avatar">
+                    C
+                </div>
+
+                <div class="name">
+                    Chakra
+                </div>
+
+                <div class="role">
+                    Workstation Owner
+                </div>
+
+                <div class="description">
+
+                    Chakra is responsible for the workstation that later
+                    becomes the focus of the simulated investigation.
+
+                    Unusual behaviour on this system becomes an important
+                    warning sign.
+
+                </div>
+
+            </div>
+
+
+            <!-- SANDEEP -->
+
+            <div class="card">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <div class="name">
+                    Sandeep
+                </div>
+
+                <div class="role">
+                    SOC Security Analyst
+                </div>
+
+                <div class="description">
+
+                    Sandeep monitors security alerts, connects suspicious
+                    events and helps identify the ransomware attack chain.
+
+                </div>
+
+            </div>
+
+
+            <!-- SARVAN -->
+
+            <div class="card">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <div class="name">
+                    Sarvan
+                </div>
+
+                <div class="role">
+                    System Administrator
+                </div>
+
+                <div class="description">
+
+                    Sarvan investigates affected systems and helps verify
+                    workstation and account activity during the incident.
+
+                </div>
+
+            </div>
+
+
+            <!-- MANI -->
+
+            <div class="card">
+
+                <div class="avatar">
+                    M
+                </div>
+
+                <div class="name">
+                    Mani
+                </div>
+
+                <div class="role">
+                    Network Analyst
+                </div>
+
+                <div class="description">
+
+                    Mani observes simulated network activity and investigates
+                    unusual communication related to the incident.
+
+                </div>
+
+            </div>
+
+
+            <!-- SIRI -->
+
+            <div class="card">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <div class="name">
+                    Siri
+                </div>
+
+                <div class="role">
+                    Incident Response Lead
+                </div>
+
+                <div class="description">
+
+                    Siri coordinates the response team and helps decide
+                    how the organization should contain and respond to
+                    the simulated ransomware incident.
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- STORY CONNECTION -->
+
+        <div class="scenario">
+
+            <h2>
+                🎬 How Their Story Connects
+            </h2>
+
+            <p>
+
+                The six members are not separate characters.
+                Their actions are connected throughout the attack story.
+
+            </p>
+
+
+            <div class="flow">
+
+                <div class="flow-item">
+
+                    <strong>01 — Sahithi</strong><br>
+
+                    <span>
+                        Receives the suspicious phishing message.
+                    </span>
+
+                </div>
+
+
+                <div class="flow-item">
+
+                    <strong>02 — Chakra</strong><br>
+
+                    <span>
+                        His workstation becomes the focus of the
+                        simulated incident.
+                    </span>
+
+                </div>
+
+
+                <div class="flow-item">
+
+                    <strong>03 — Sandeep</strong><br>
+
+                    <span>
+                        Detects and connects suspicious security alerts.
+                    </span>
+
+                </div>
+
+
+                <div class="flow-item">
+
+                    <strong>04 — Sarvan</strong><br>
+
+                    <span>
+                        Investigates the affected workstation and systems.
+                    </span>
+
+                </div>
+
+
+                <div class="flow-item">
+
+                    <strong>05 — Mani</strong><br>
+
+                    <span>
+                        Investigates unusual network communication.
+                    </span>
+
+                </div>
+
+
+                <div class="flow-item">
+
+                    <strong>06 — Siri</strong><br>
+
+                    <span>
+                        Coordinates the incident-response process.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <a href="/incident" class="button">
+            START THE INCIDENT STORY →
+        </a>
+
+
+        <div class="safe-note">
+
+            ✓ Fictional healthcare environment —
+            educational simulation only.
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+DEMO HOSPITAL RECORD
+
+Patient ID: DEMO-001
+Name: Test Patient
+Department: General Medicine
+
+This is dummy data created only for cybersecurity simulation.

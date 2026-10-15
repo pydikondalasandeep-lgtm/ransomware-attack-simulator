@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Phishing Simulation</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #05070d;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090e17;
+            border-bottom: 1px solid #26334a;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+        }
+
+        .mode {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 0;
+        }
+
+        .stage {
+            color: #54d6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #9ba7ba;
+            line-height: 1.7;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .scene {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 25px;
+        }
+
+        .email {
+            background: #f4f6f8;
+            color: #17202a;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .email-header {
+            padding: 18px 22px;
+            background: #e2e6eb;
+            border-bottom: 1px solid #c6ccd3;
+        }
+
+        .email-header div {
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        .email-body {
+            padding: 30px;
+            min-height: 320px;
+            line-height: 1.7;
+        }
+
+        .urgent {
+            color: #c62828;
+            font-weight: bold;
+        }
+
+        .fake-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 13px 25px;
+            background: #1769aa;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .analysis {
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        .analysis h2 {
+            margin-bottom: 18px;
+        }
+
+        .point {
+            padding: 13px;
+            margin-bottom: 10px;
+            background: #101823;
+            border-radius: 8px;
+            color: #c1cad7;
+            line-height: 1.5;
+        }
+
+        .danger {
+            border-left: 3px solid #ffb84d;
+        }
+
+        .safe {
+            border-left: 3px solid #75d6a0;
+        }
+
+        .explanation {
+            margin-top: 25px;
+            padding: 25px;
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 12px;
+            line-height: 1.7;
+            color: #aab4c5;
+        }
+
+        .explanation strong {
+            color: white;
+        }
+
+        .continue {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .notice {
+            margin-top: 20px;
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            .scene {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="mode">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="stage">
+            STAGE 01 — PHISHING
+        </div>
+
+        <h1>
+            10:14 AM — Sahithi Receives a Message
+        </h1>
+
+        <p class="intro">
+            Sahithi is working normally when an unexpected account
+            verification message appears on her screen. The message
+            creates urgency and asks her to take immediate action.
+        </p>
+
+
+        <div class="scene">
+
+            <div class="email">
+
+                <div class="email-header">
+
+                    <div>
+                        <strong>From:</strong>
+                        IT Support — MedCore
+                    </div>
+
+                    <div>
+                        <strong>To:</strong>
+                        Sahithi
+                    </div>
+
+                    <div>
+                        <strong>Subject:</strong>
+                        <span class="urgent">
+                            URGENT: Account Verification Required
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="email-body">
+
+                    <p>
+                        Hello Sahithi,
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Your MedCore account requires immediate
+                        verification to prevent temporary suspension.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Please verify your account using the button below.
+                    </p>
+
+                    <div class="fake-button">
+                        VERIFY ACCOUNT
+                    </div>
+
+                    <br><br>
+
+                    <p>
+                        Regards,<br>
+                        IT Support
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis">
+
+                <h2>
+                    🔍 Security Analysis
+                </h2>
+
+                <div class="point danger">
+                    ⚠ <strong>Urgency:</strong>
+                    The message tries to make the employee act quickly.
+                </div>
+
+                <div class="point danger">
+                    ⚠ <strong>Unexpected request:</strong>
+                    Sahithi did not request an account verification.
+                </div>
+
+                <div class="point danger">
+                    ⚠ <strong>Sender verification:</strong>
+                    The sender should be verified before trusting the message.
+                </div>
+
+                <div class="point safe">
+                    ✓ <strong>Correct response:</strong>
+                    Verify through an official channel instead of blindly
+                    following the message.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="explanation">
+
+            <strong>🧠 What is phishing?</strong>
+
+            <br><br>
+
+            Phishing is a social-engineering technique where an attacker
+            creates a deceptive message to trick a person into performing
+            an unsafe action.
+
+            <br><br>
+
+            <strong>Why is it dangerous?</strong>
+
+            <br><br>
+
+            A successful phishing attempt can become an initial entry
+            point into an organization's environment.
+
+            <br><br>
+
+            <strong>🛡️ Defender lesson:</strong>
+
+            <br><br>
+
+            Stop. Verify the sender. Check the request through an official
+            channel. Report suspicious messages instead of interacting
+            with them.
+
+        </div>
+
+
+        <a href="/initial-access" class="continue">
+            CONTINUE TO INITIAL ACCESS →
+        </a>
+
+
+        <div class="notice">
+            ✓ Training simulation only — no real email was sent.
+        </div>
+
+    </div>
+
+</body>
+</html>

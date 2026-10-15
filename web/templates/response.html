@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Incident Response | MedCore Incident Lab</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #05070d;
+            color: white;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        .topbar {
+            height: 70px;
+            padding: 0 45px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #090e17;
+            border-bottom: 1px solid #26334a;
+        }
+
+        .logo {
+            color: #54d6ff;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .safe {
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 0;
+        }
+
+        .stage {
+            color: #75d6a0;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 46px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            color: #aab4c5;
+            font-size: 17px;
+            max-width: 900px;
+        }
+
+        .status {
+            margin-top: 30px;
+            padding: 25px;
+            background: #0b1511;
+            border: 1px solid #315b46;
+            border-radius: 14px;
+        }
+
+        .status h2 {
+            color: #75d6a0;
+            margin-bottom: 10px;
+        }
+
+        .status p {
+            color: #c4d8cc;
+        }
+
+        .phase {
+            margin-top: 35px;
+            padding: 30px;
+            background: #0b101a;
+            border: 1px solid #26334a;
+            border-radius: 15px;
+        }
+
+        .phase-label {
+            color: #54d6ff;
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .phase h2 {
+            margin-top: 8px;
+            margin-bottom: 20px;
+        }
+
+        .action {
+            padding: 20px;
+            margin-top: 12px;
+            background: #080d15;
+            border: 1px solid #26334a;
+            border-radius: 10px;
+        }
+
+        .action h3 {
+            margin-bottom: 6px;
+        }
+
+        .action p {
+            color: #aab4c5;
+        }
+
+        .person {
+            color: #54d6ff;
+            font-weight: bold;
+        }
+
+        .dialogue {
+            margin-top: 10px;
+            padding: 12px;
+            background: #101923;
+            border-left: 3px solid #54d6ff;
+            color: #dce5ef;
+            font-style: italic;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 25px;
+            background: #0b1511;
+            border: 1px solid #315b46;
+            border-radius: 12px;
+        }
+
+        .result h2 {
+            color: #75d6a0;
+            margin-bottom: 15px;
+        }
+
+        .result-item {
+            padding: 12px;
+            margin-top: 8px;
+            background: #101d17;
+            border-radius: 8px;
+            color: #c4d8cc;
+        }
+
+        .lesson {
+            margin-top: 30px;
+            padding: 28px;
+            background: #11101a;
+            border-left: 4px solid #c66cff;
+            border-radius: 8px;
+        }
+
+        .lesson h2 {
+            color: #d78cff;
+            margin-bottom: 12px;
+        }
+
+        .lesson p {
+            color: #c3b5ca;
+        }
+
+        .next {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 16px 32px;
+            background: #16a6d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+
+        .safe-note {
+            margin-top: 18px;
+            color: #75d6a0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 750px) {
+
+            h1 {
+                font-size: 35px;
+            }
+
+            .topbar {
+                padding: 0 20px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="topbar">
+
+        <div class="logo">
+            MEDCORE // INCIDENT LAB
+        </div>
+
+        <div class="safe">
+            ● SAFE SIMULATION
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+
+        <div class="stage">
+            STAGE 07 — INCIDENT RESPONSE
+        </div>
+
+
+        <h1>
+            The Team Fights Back
+        </h1>
+
+
+        <p class="intro">
+
+            The ransomware impact has been detected.
+            Now the MedCore team must contain the incident,
+            investigate what happened and begin recovery.
+
+        </p>
+
+
+        <div class="status">
+
+            <h2>
+                🟢 RESPONSE TEAM ACTIVATED
+            </h2>
+
+            <p>
+
+                Siri has activated the incident-response process.
+                The team will work together instead of responding
+                to the attacker individually.
+
+            </p>
+
+        </div>
+
+
+        <!-- CONTAINMENT -->
+
+        <div class="phase">
+
+            <div class="phase-label">
+                PHASE 01
+            </div>
+
+            <h2>
+                🔒 Containment
+            </h2>
+
+
+            <div class="action">
+
+                <h3>
+                    <span class="person">Sarvan</span> — Isolate the affected workstation
+                </h3>
+
+                <p>
+
+                    Sarvan begins the simulated isolation of
+                    Chakra's workstation to reduce the possibility
+                    of further spread.
+
+                </p>
+
+                <div class="dialogue">
+
+                    "The affected workstation is isolated."
+
+                </div>
+
+            </div>
+
+
+            <div class="action">
+
+                <h3>
+                    <span class="person">Mani</span> — Check network activity
+                </h3>
+
+                <p>
+
+                    Mani checks the simulated network indicators
+                    to determine whether suspicious activity
+                    appears on other systems.
+
+                </p>
+
+                <div class="dialogue">
+
+                    "No additional affected systems are confirmed
+                    in this simulation."
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- INVESTIGATION -->
+
+        <div class="phase">
+
+            <div class="phase-label">
+                PHASE 02
+            </div>
+
+            <h2>
+                🔎 Investigation
+            </h2>
+
+
+            <div class="action">
+
+                <h3>
+                    <span class="person">Sandeep</span> — Reconstruct the attack
+                </h3>
+
+                <p>
+
+                    Sandeep connects the events from phishing,
+                    initial access, execution, persistence,
+                    discovery and ransomware impact.
+
+                </p>
+
+                <div class="dialogue">
+
+                    "The attack started with phishing and progressed
+                    through multiple stages before impact."
+
+                </div>
+
+            </div>
+
+
+            <div class="action">
+
+                <h3>
+                    <span class="person">Sahithi</span> — Confirm the first event
+                </h3>
+
+                <p>
+
+                    Sahithi confirms that the suspicious message
+                    was the first event noticed by the employee.
+
+                </p>
+
+                <div class="dialogue">
+
+                    "Yes. That was the message I received earlier."
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECOVERY -->
+
+        <div class="phase">
+
+            <div class="phase-label">
+                PHASE 03
+            </div>
+
+            <h2>
+                ♻️ Recovery
+            </h2>
+
+
+            <div class="action">
+
+                <h3>
+                    <span class="person">Chakra</span> — Verify workstation status
+                </h3>
+
+                <p>
+
+                    Chakra works with the response team to verify
+                    that the workstation is safe before returning
+                    it to normal operations.
+
+                </p>
+
+                <div class="dialogue">
+
+                    "The workstation can be restored after security checks."
+
+                </div>
+
+            </div>
+
+
+            <div class="action">
+
+                <h3>
+                    <span class="person">Siri</span> — Coordinate recovery
+                </h3>
+
+                <p>
+
+                    Siri coordinates the final recovery activities
+                    and ensures that the incident is documented.
+
+                </p>
+
+                <div class="dialogue">
+
+                    "Recovery comes after containment and investigation."
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RESULT -->
+
+        <div class="result">
+
+            <h2>
+                ✅ Simulated Incident Status
+            </h2>
+
+            <div class="result-item">
+                ✓ Affected workstation isolated
+            </div>
+
+            <div class="result-item">
+                ✓ Suspicious activity investigated
+            </div>
+
+            <div class="result-item">
+                ✓ Attack chain reconstructed
+            </div>
+
+            <div class="result-item">
+                ✓ Network activity reviewed
+            </div>
+
+            <div class="result-item">
+                ✓ Recovery process initiated
+            </div>
+
+            <div class="result-item">
+                ✓ Incident documented
+            </div>
+
+        </div>
+
+
+        <div class="lesson">
+
+            <h2>
+                🧠 What Did We Learn?
+            </h2>
+
+            <p>
+
+                A ransomware incident is not just about the final
+                ransom screen.
+
+                <br><br>
+
+                It is a chain of events:
+
+                <br><br>
+
+                <strong>
+                    Phishing → Initial Access → Execution →
+                    Persistence → Discovery → Impact →
+                    Response → Recovery
+                </strong>
+
+                <br><br>
+
+                Detecting the attack earlier can give defenders
+                more opportunities to stop the chain before
+                serious impact occurs.
+
+            </p>
+
+        </div>
+
+
+        <a href="/" class="next">
+            RETURN TO INCIDENT LAB HOME →
+        </a>
+
+
+        <div class="safe-note">
+
+            ✓ Educational simulation only —
+            no real ransomware, encryption or payment process was used.
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>
